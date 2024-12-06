@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Instant Download</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Instant Download</h1>
+    
+    <div class="input-group">
+        <input type="text" id="url" placeholder="Enter download URL">
+        <button onclick="download()">Download</button>
+    </div>
+
+    <script>
+        function download() {
+            const url = document.getElementById('url').value;
+            if (!url) return;
+            
+            // Replace YOUR_WORKER_URL with your Cloudflare Worker URL
+            const workerUrl = 'YOUR_WORKER_URL/?url=' + encodeURIComponent(url);
+            window.location.href = workerUrl;
+        }
+    </script>
+</body>
+</html> 
